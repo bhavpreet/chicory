@@ -4,8 +4,8 @@ import json
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-from server.moon_phases import moon
-moon = moon(mock=True)
+from moon_phases import moon
+moon = moon(mock=False)
 
 @app.route('/')
 def index():
