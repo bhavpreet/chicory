@@ -3,3 +3,4 @@ moon
 opencv-python
 numpy
 np
+pillow

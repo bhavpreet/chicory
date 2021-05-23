@@ -15,8 +15,8 @@ class moon:
         self.width = width
         self.height = height
         self.moons = []
-        self.setPhase()
         self.aquiredMoonData = False
+        self.setPhase()
 
     def setPhase(self, date=None, hour=None):
         self.today = ""
@@ -72,7 +72,7 @@ class moon:
         for i in range(3):
             # convert('1') converts to black and white
             lone_moon = np.asarray(Image.fromarray(cv2.LUT(self.moons[i], lut_8u)))#.convert('1')).astype(int)
-            Image.fromarray(lone_moon).show()
+            # Image.fromarray(lone_moon).show()
             lone_moon = cv2.resize(lone_moon, SCALE_TO)
             # x = (pad + (i * slot) + ((slot - SCALE_TO[0]) // 2))
             x = (left_pad + (SCALE_TO[0] * i) + (i * inter_pad))
@@ -109,7 +109,7 @@ class moon:
         #     1) #font stroke
  
        
-        Image.fromarray(frameBuf).show()
+        # Image.fromarray(frameBuf).show()
         frameBuf = cv2.rotate(frameBuf, cv2.cv2.ROTATE_90_CLOCKWISE)
         frameBuf = np.asarray(Image.fromarray(frameBuf).convert('1')).astype(int)
 
