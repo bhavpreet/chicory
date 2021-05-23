@@ -4,8 +4,8 @@ import json
 from flask import Flask, jsonify
 app = Flask(__name__)
 
-from moon_phases import moon
-moon = moon(mock=False)
+from server.moon_phases import moon
+moon = moon(mock=True)
 
 @app.route('/')
 def index():
@@ -14,4 +14,6 @@ def index():
     return jsonify({'moon_b': moon_b,
                     'moon_r': moon_r})
 
-app.run(host="0.0.0.0", port=80, debug=False)
+if __name__ == '__main__':
+    # app.run(host="0.0.0.0", port=80, debug=False)
+    app.run()
