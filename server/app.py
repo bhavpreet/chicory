@@ -14,4 +14,4 @@ def index():
     return jsonify({'moon_b': moon_b,
                     'moon_r': moon_r})
 
-app.run(host="0.0.0.0")
+app.run(host="0.0.0.0", port=80, debug=False)
