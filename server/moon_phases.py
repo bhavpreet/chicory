@@ -110,16 +110,23 @@ class moon:
         #     (255, 255, 255, 255), #font color
         #     1) #font stroke
  
-       
-        # Image.fromarray(frameBuf).show()
+        if self.mock == True:
+            Image.fromarray(frameBuf).show()
+        # Rotate 270
         frameBuf = cv2.rotate(frameBuf, cv2.cv2.ROTATE_90_CLOCKWISE)
+        frameBuf = cv2.rotate(frameBuf, cv2.cv2.ROTATE_90_CLOCKWISE)
+        frameBuf = cv2.rotate(frameBuf, cv2.cv2.ROTATE_90_CLOCKWISE)
+
+        # convert to b/w
         frameBuf = np.asarray(Image.fromarray(frameBuf).convert('1')).astype(int)
 
         # convert to black and white
         # gray = cv2.cvtColor(frameBuf, cv2.COLOR_BGR2GRAY)
         # frameBuf = cv2.threshold(gray, 100, 200, cv2.THRESH_BINARY)[1]
         # frameBuf = cv2.threshold(gray,100,200,cv2.THRESH_TOZERO)[1]
-        # Image.fromarray(frameBuf).show()
+        # if self.mock == True:
+        #     Image.fromarray(frameBuf).show()
+
         # embed lone_moon_eink into frameBuf in the center
         white = np.zeros((self.height,self.width,3), np.uint8)
         white.fill(255)
@@ -191,5 +198,5 @@ def img_to_eink_hex(cim):
 
 
 if __name__ == '__main__':
-    m = moon(mock=False)
+    m = moon(mock=True)
     m.getImg_br()
