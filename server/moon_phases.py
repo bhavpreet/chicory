@@ -72,8 +72,8 @@ class moon:
         for i in range(3):
             # convert('1') converts to black and white
             # TODO: Fix lone_moon
-            # lone_moon = np.asarray(Image.fromarray(cv2.LUT(self.moons[i], lut_8u)), np.uint8) #.convert('1')).astype(int)
             lone_moon = self.moons[i]
+            lone_moon = np.asarray(Image.fromarray(cv2.LUT(lone_moon, lut_8u)), np.uint8) #.convert('1')).astype(int)
             # Image.fromarray(lone_moon).show()
             lone_moon = cv2.resize(lone_moon, SCALE_TO)
             # x = (pad + (i * slot) + ((slot - SCALE_TO[0]) // 2))
