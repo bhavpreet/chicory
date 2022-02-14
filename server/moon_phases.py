@@ -9,9 +9,10 @@ SCALE_TO = (57, 57)
 DIMENSIONS = (212, 104)
 
 class moon:
-    def __init__(self, width=DIMENSIONS[0], height=DIMENSIONS[1], mock=False):
+    def __init__(self, width=DIMENSIONS[0], height=DIMENSIONS[1], mock=False, debug=False):
         self.m = Moon()
         self.mock = mock
+        self.debug = debug
         self.width = width
         self.height = height
         self.moons = []
@@ -110,7 +111,7 @@ class moon:
         #     (255, 255, 255, 255), #font color
         #     1) #font stroke
  
-        if self.mock == True:
+        if self.debug == True:
             Image.fromarray(frameBuf).show()
         # Rotate 270
         frameBuf = cv2.rotate(frameBuf, cv2.cv2.ROTATE_90_CLOCKWISE)
@@ -198,5 +199,5 @@ def img_to_eink_hex(cim):
 
 
 if __name__ == '__main__':
-    m = moon(mock=True)
+    m = moon(mock=True, debug=True)
     m.getImg_br()
