@@ -199,5 +199,5 @@ def img_to_eink_hex(cim):
 
 
 if __name__ == '__main__':
-    m = moon(mock=True, debug=True)
+    m = moon(mock=False, debug=True)
     m.getImg_br()
