@@ -5,6 +5,7 @@ import network
 import time
 import web
 import machine
+import const
 
 ap_ssid = "Chicory"
 ap_password = "12345678"
